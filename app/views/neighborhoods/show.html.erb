@@ -9,7 +9,13 @@
       <dd><%= @neighborhood.neighborhood_name %></dd>
 
       <dt>Bookmarks</dt>
-      <dd><%= @neighborhood.bookmarks_id %></dd>
+      <dd>
+        <% if @neighborhood.bookmark.present? %>
+          <a href="/bookmarks/<%= @neighborhood.bookmarks_id %>">
+            <%= @neighborhood.bookmark.dishes_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
