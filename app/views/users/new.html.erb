@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add User</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_user" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for venues_id -->
+      <div class="form-group">
+        <label for="venues_id" class="control-label">
+          Venues
+        </label>
+
+        <input type="text" id="venues_id" name="venues_id" placeholder="Venues" class="form-control" value="<%= @user.venues_id %>">
+      </div>
+
+      <!-- Label and input for bookmarks_id -->
+      <div class="form-group">
+        <label for="bookmarks_id" class="control-label">
+          Bookmarks
+        </label>
+
+        <input type="text" id="bookmarks_id" name="bookmarks_id" placeholder="Bookmarks" class="form-control" value="<%= @user.bookmarks_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create User
+      </button>
+      or
+      <a href="/users">Cancel</a>
+    </form>
+  </div>
+</div>
