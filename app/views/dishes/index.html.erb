@@ -21,7 +21,7 @@
         <td><%= dish.cuisine.cuisine_type %></td>
         <td><%= dish.name %></td>
         <td><%= dish.venues_id %></td>
-        <td><%= dish.user_id %></td>
+        <td><%= dish.user.created_at %></td>
         <td>
           <a href="/dishes/<%= dish.id %>" class="btn btn-primary">Show</a>
           <a href="/dishes/<%= dish.id %>/edit" class="btn btn-warning">Edit</a>
