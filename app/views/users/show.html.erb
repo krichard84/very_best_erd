@@ -54,6 +54,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_dish" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for cuisines_id -->
+      <div class="form-group">
+        <label for="cuisines_id" class="control-label">
+          Cuisines
+        </label>
+
+        <%= select_tag(:cuisines_id, options_from_collection_for_select(Cuisine.all, :id, :cuisine_type), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for venues_id -->
+      <div class="form-group">
+        <label for="venues_id" class="control-label">
+          Venues
+        </label>
+
+        <input type="text" id="venues_id" name="venues_id" placeholder="Venues" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= @user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Dish
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
