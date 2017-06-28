@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :bookmarks,
+             :through => :dishes,
+             :source => :bookmarks
+
   # Validations
 
 end

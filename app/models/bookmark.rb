@@ -15,6 +15,10 @@ class Bookmark < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :user,
+             :through => :dishes,
+             :source => :user
+
   # Validations
 
 end
